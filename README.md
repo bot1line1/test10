@@ -1,240 +1,281 @@
-# line-bot-Tutorial
- 教你建立自己的 line-bot 使用 python flask 📝   
- line-bot-tutorial use python flask
+# Deploying-Flask-To-Heroku
+Deploying a Flask App To Heroku Tutorial 📝  
 
-* [Youtube Demo Tutorial V1 ](https://youtu.be/EToFs-ysXKw)   
+* [Youtube Demo](https://youtu.be/fidKOYWWfkM)  
+* [How to use Heroku Postgres deploying](https://youtu.be/OvQetdMN88E)
 
-* [Youtube Demo V2](https://youtu.be/1IxtWgWxtlE)   
+今天教大家如何佈署 Flask App 到 [Heroku](https://dashboard.heroku.com/)
 
-## 執行畫面
+[Heroku](https://dashboard.heroku.com/) 免費版本
 
-請先加入好友
+* 可以創造 5個 app。
+* 24小時一定要休息6小時的規定。
+* 支援很多種程式語言。
+* 有SSL(https)。
 
-我的 QRCODE
-
-![alt tag](http://i.imgur.com/Kkpzt4p.jpg)
-
-或是手機直接點選 [https://line.me/R/ti/p/%40vbi2716y](https://line.me/R/ti/p/%40vbi2716y)
-
-![alt tag](http://i.imgur.com/oAgR5nr.jpg)
-
-認證記得請選 <b>同意</b>
-
-![alt tag](http://i.imgur.com/9LOlGHh.jpg)
-
-### v2 2017/2/25 
-
-![alt tag](http://i.imgur.com/M30GJOU.jpg)
-
-![alt tag](http://i.imgur.com/PCcnc5R.jpg)
-
-![alt tag](http://i.imgur.com/3fajqDK.jpg)
-
-![alt tag](http://i.imgur.com/SXwT0bl.jpg)
-
-![alt tag](http://i.imgur.com/mc0R0xL.jpg)
-
-![alt tag](http://i.imgur.com/GJI1BwG.jpg)
-
-![alt tag](http://i.imgur.com/5T32UW3.jpg)
-
-
-
-### V1  commit [ba855d6307c50cc478db3d7ac689bf0c96122a0f](https://github.com/twtrubiks/line-bot-tutorial/tree/ba855d6307c50cc478db3d7ac689bf0c96122a0f)
-
-成功加入後，我的 <b>阿肥bot</b> 會傳訊息給你，並且告訴你我提供的服務
-
-![alt tag](http://i.imgur.com/n9Gj09Y.jpg)
-
-之後你就可以依照你想要看的東西輸入指令 (目前是有分大小寫，所以請輸入 <b>小寫</b> )
-
-#### "eyny" : eyny 電影版 Mega 連結的網址。
-
-![alt tag](http://i.imgur.com/rIGbmWA.jpg)
-
-#### "news" : apple news 即時新聞。
-
-![alt tag](http://i.imgur.com/JGnn2vG.jpg)
-
-#### "beauty" : ptt 表特版 近期大於 10 推的文章 。
-
-![alt tag](http://i.imgur.com/mvxoq4M.jpg)
-
-#### "ptthot" : ptt 近期熱門的文章。
-
-![alt tag](http://i.imgur.com/doMVR3y.jpg)
-
-#### "movie" : 近期上映的電影 ( 開眼電影網 )。
-
-![alt tag](http://i.imgur.com/EGbEXJ7.jpg)
-
-#### "technews" : 科技新聞。
-
-![alt tag](http://i.imgur.com/rHdq69F.jpg)
-
-#### "panx" : 科技新聞 ( 泛科技 ) 。
-
-![alt tag](http://i.imgur.com/NhaGdlW.jpg)
-
-如果輸入不存在的指令，<b>阿肥bot</b> 會告知你我目前能做的指令有哪些
-
-![alt tag](http://i.imgur.com/dabsGfK.jpg)
-
-
-希望這個 <b>阿肥bot</b> 能幫助大家，程式碼基本上就是很簡單的爬蟲。
-
-如果需要其他的功能，可以給小弟一點建議，我會盡量完成他。
-
+更多說明請參考 [Heroku](https://dashboard.heroku.com/)
 
 
 ## 教學
 
-請先到 [https://business.line.me/zh-hant/](https://business.line.me/zh-hant/) 這裡登入自己
+### 步驟一
 
-原本的 line 帳號，然後點選 Messaging API
+先註冊 Heroku 帳號，請到 [Heroku](https://dashboard.heroku.com/)  註冊
 
-![alt tag](http://i.imgur.com/KIzExmQ.jpg)
+### 步驟二
 
-接下來你會看到 <b>開始使用Messaging API</b> 以及 <b>開始使用Developer Trial</b>
+請安裝 [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install) (請選擇符合自己得作業系統，這裡用 Windows 介紹)
 
-在這裡我們選 <b>開始使用Messaging API</b>
+安裝過程，如果已經有安裝過 [Git](https://git-scm.com/) ，可以把勾勾拿掉，
 
-![alt tag](http://i.imgur.com/graLPrj.jpg)
+![alt tag](http://i.imgur.com/A3QLRpA.jpg)
 
-這兩個差別在哪裡呢? 可以到同一個頁面的下方觀看，基本上就只是方案不同而已
-
-![alt tag](http://i.imgur.com/bERbTGz.jpg)
-
-接著就是一些設定，點選 選擇公司/經營者
-
-![alt tag](http://i.imgur.com/d1pVdx9.jpg)
-
-點選 新增公司/經營者
-
-![alt tag](http://i.imgur.com/of23y7W.jpg)
-
-填寫一些資料
-
-![alt tag](http://i.imgur.com/7L9nulI.jpg)
-
-line bot 的 大頭貼 以及 名稱 設定
-
-![alt tag](http://i.imgur.com/7483ljT.jpg)
-
-![alt tag](http://i.imgur.com/a4Mf3Rl.jpg)
-
-設定完後，請選擇 申請
-
-![alt tag](http://i.imgur.com/Q6q8zGA.jpg)
-
-以上設定應該不會有什麼問題
-
-請選擇 開始使用 API
-
-![alt tag](http://i.imgur.com/DOEjH0F.jpg)
-
-請選擇 確認
-
-![alt tag](http://i.imgur.com/pKWBvsj.jpg)
-
-這些請注意，  選擇 <b>允許</b> ，然後記得 <b>儲存</b>
-
-![alt tag](http://i.imgur.com/Ofm9SeJ.jpg)
-
-點選 <b>Line Developers</b>
-
-![alt tag](http://i.imgur.com/cW9713h.jpg)
-
-你會進入下面這個畫面，在這個畫面中，有兩個東西很重要，分別是
-
-* Channel Secret
-
-* Channel Access Token
-
-<b>Channel Secret</b>
-
-![alt tag](http://i.imgur.com/jpIEMh4.jpg)
-
-<b>Channel Access Token</b>
-
-如果你看到的是空的，請點選 <b>ISSUE</b> 就會顯示了
-
-![alt tag](http://i.imgur.com/PcCEL4P.jpg)
-
-請將你的 <b>Channel Secret</b> 以及 <b>Channel Access Token </b>
-
-貼到下方的程式碼
+安裝完後，請使用你的 cmd (命令提示字元) 輸入以下指令
 
 ```
-line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
-handler = WebhookHandler('YOUR_CHANNEL_SECRET')
-``` 
+heroku --version
+```
 
-更多資訊可參考 [line-bot-sdk-python](https://github.com/line/line-bot-sdk-python)
+如果安裝正確，會跳出你安裝的 Heroku CLI 版本
 
-接下來因為 Line Bot 需要 SSL憑證 ( https )，所以我直接使用 [Heroku](https://dashboard.heroku.com/) 
+![alt tag](http://i.imgur.com/UuWGUk1.jpg)
 
-如果不知道什麼是 [Heroku](https://dashboard.heroku.com/)  以及它的使用方法
 
-請參考我之前寫的 [Deploying-Flask-To-Heroku](https://github.com/twtrubiks/Deploying-Flask-To-Heroku)
+接著再請你使用你的 cmd (命令提示字元) 輸入你的 [Heroku](https://dashboard.heroku.com/) 帳號  和 密碼
+```
+heroku login
+```
+![alt tag](http://i.imgur.com/6vtoORM.jpg)
 
-佈署
+### 步驟三
 
-![alt tag](http://i.imgur.com/kseRgxr.jpg)
-
-如上圖，我的網址是 [https://python-ine-bot.herokuapp.com/](https://python-ine-bot.herokuapp.com/)
-
-接著我們要加入 Webhook URL ，請點選 EDIT ，並且加入你自己的網址，網址格式
+請先 clone 我的簡單 flask 範例
 
 ```
-https://{你的網址}/callback
-``` 
+git clone https://github.com/twtrubiks/Deploying-Flask-To-Heroku.git
+```
 
-舉例，我的網址就是
+在資料夾裡，有幾個比較重要的檔案，分別為
+* requirements.txt
+* Procfile
+* runtime.txt
+
+#### requirements.txt
+
+這個檔案是要告訴 [Heroku](https://dashboard.heroku.com/) 你的環境需要那些其他的套件
+
+你可以使用 cmd (命令提示字元) 輸入以下指令查看目前電腦所安裝的套件
+
+p.s 請安裝你需要的套件即可
 
 ```
-https://python-ine-bot.herokuapp.com/callback
-``` 
+pip freeze
+```
+![alt tag](http://i.imgur.com/WxuORWB.jpg)
 
-![alt tag](http://i.imgur.com/5ckn24T.jpg)
+然後可以使用以下指令匯出文字檔 requirements.txt
+```
+pip freeze > requirements.txt
+```
+![alt tag](http://i.imgur.com/mlhGXOk.jpg)
 
-![alt tag](http://i.imgur.com/TIjIM9W.jpg)
+該目錄底下會多出 requirements.txt
 
-輸入完之後，可以按 VERIFY ，如果你的 CODE 正確無誤，就會顯示 Success
+p.s 可以把不需要安裝的套件從 requirements.txt 裡移除
 
-![alt tag](http://i.imgur.com/Mey5FKF.jpg)
+#### Procfile
 
-不過我使用 [line-bot-sdk-python](https://github.com/line/line-bot-sdk-python)當我按下 VERIFY，卻出現錯誤，不過是可以正常運作，所以暫時先不管他。
+Procfile 這個檔案是要告訴 [Heroku](https://dashboard.heroku.com/) 要如何啟動這個 web app
 
-![alt tag](http://i.imgur.com/wb0Qw5W.jpg)
+在 [Heroku](https://dashboard.heroku.com/) 裡，官方使用 [Gunicorn](http://gunicorn.org/) 來啟動 web server，請參考
 
-關於上述這個問題，可以到 [issues 2](https://github.com/twtrubiks/line-bot-tutorial/issues/2) 觀看
+[python-gunicorn Heroku](https://devcenter.heroku.com/articles/python-gunicorn)
 
-基本上到這裡就是完成了，趕快去加入自己的 line bot 玩玩看吧~
+所以在 <b>requirements.txt</b> 裡，請記得要輸入 [gunicorn](http://gunicorn.org/)
 
-只要我有新的想法，我會同步更新在這篇文章， line bot 還有很多好玩的地方
+Procfile 檔案，基本使用方法如下
+```
+web gunicorn app_run:app
+```
+app_run 就是你的 app_run.py，請依照自己設定的名稱自行修改
 
-## 其他補充
-只要有使用到網址，請記得一定都要用 <b> https </b>
 
-舉例
+#### runtime.txt
+
+runtime.txt 檔案裡，只需要簡單的填入你想要指定的 python 版本
+```
+python-3.4.3
+```
+可參考 [Heroku python-runtimes](https://devcenter.heroku.com/articles/python-runtimes)
+
+如果你不想指定 python 的版本，這個檔案可以忽略。
+
+### 步驟四
+
+#### 先創造 Heroku application
+
+方法一 :
+
+使用你的 cmd (命令提示字元) 輸入以下指令
+```
+heroku create
+```
+![alt tag](http://i.imgur.com/OJS8K3N.jpg)
+
+p.s 你看到的網址會和我看到的不一樣，請輸入你看到的
+
+方法二 :
+
+到網頁上新增一個 [Heroku application](https://dashboard.heroku.com/new?org=personal-apps)
+![alt tag](http://i.imgur.com/8KVzbfD.jpg)
+
+#### 初始化
+
+使用你的 cmd (命令提示字元) 切換到目錄底下，先著初始化
+```
+git init
+```
+
+#### 佈署
+指定 remote
+```
+heroku git:remote -a tranquil-earth-29753
+```
+tranquil-earth-29753 這是我自己的，請輸入你的
+
+這些指令你可以在 web app 裡的 deploy 看到
+
+![alt tag](http://i.imgur.com/hQ5FN7A.jpg)
+
+基本上就是 git 的操作，如不清楚什麼是 [Git](https://git-scm.com/)
+
+可以參考我之前寫的 [Git-Tutorials](https://github.com/twtrubiks/Git-Tutorials)
 
 ```
-image_message = ImageSendMessage(
-            original_content_url="https://example.com.img1.jpg",
-            preview_image_url="https://example.com.img1.jpg"
-        )
-``` 
+git add .
+git commit -am "make it better"
+git push heroku master
+```
+![alt tag](http://i.imgur.com/pRC4WGW.jpg)
 
+![alt tag](http://i.imgur.com/gPaK7kd.jpg)
 
+佈署完畢，網址的格式為，如上面這張圖
+```
+https://[ 你的 app 名稱 ].herokuapp.com/
+```
+例如我的網址格式為
+```
+https://tranquil-earth-29753.herokuapp.com/
+```
+commit ID [4a42e26aee2bff1b10247d7e8a75d4d86b0c83b8](https://github.com/twtrubiks/Deploying-Flask-To-Heroku/tree/4a42e26aee2bff1b10247d7e8a75d4d86b0c83b8)
+
+## 畫面
+
+如果使用我的範例佈署成功，畫面應該如下
+
+我的網址為 [https://tranquil-earth-29753.herokuapp.com/](https://tranquil-earth-29753.herokuapp.com/)
+
+![alt tag](http://i.imgur.com/WGjBKEJ.jpg)
+
+## LOG 資訊
+
+<b>log 的資訊非常重要</b>，因為有時候本機端可以正常運行，但佈署上去就無法運行，
+
+所以這時候就要看 log 資訊。
+
+可以使用以下指令查看你在 heroku上 的 web app 的 log
+
+```
+heroku logs
+```
+![alt tag](http://i.imgur.com/1Oe5rER.jpg)
+
+或是可以從網頁端查看
+
+![alt tag](http://i.imgur.com/NmyRvxs.jpg)
+
+網址格式為
+```
+https://dashboard.heroku.com/apps/[ 你的 app 名稱 ]/logs
+```
+
+## 如何在 heroku 上使用 database
+
+請先到下列網址建立 database
+[heroku addons](https://elements.heroku.com/addons)
+
+你會看到很多 db ，這裡用 Heroku Postgres 當作範例
+
+![alt tag](http://i.imgur.com/AxoKeka.jpg)
+
+接著安裝就行了，如果你還沒有登入，他會請你先登入
+
+![alt tag](http://i.imgur.com/FCaqoPB.jpg)
+
+選擇你的 db 是要給哪個專案用的
+
+![alt tag](http://i.imgur.com/BQZVgjc.jpg)
+
+接著選擇方案，這裡選擇 FREE 方案
+
+![alt tag](http://i.imgur.com/jleHgxw.jpg)
+
+接下來你就會看到 DB 已經被建立了
+
+![alt tag](http://i.imgur.com/aa1kX6o.jpg)
+
+點擊他，就可以跳到下面的畫面
+
+![alt tag](http://i.imgur.com/eGQKDg1.jpg)
+
+接著按 View Credentials
+
+![alt tag](http://i.imgur.com/HuHQUvm.jpg)
+
+可以看到自己 db 的一些資料，包含 帳號、密碼 資訊
+
+![alt tag](http://i.imgur.com/roGcz1i.jpg)
+
+現在我們來建立 DB 的 TABLE
+
+先將 URI 這個很長的連接字串，貼到 [dbModel.py](https://github.com/twtrubiks/Deploying-Flask-To-Heroku/blob/master/dbModel.py) 裡面
+
+```
+app.config[
+    'SQLALCHEMY_DATABASE_URI'] = 'postgres://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+```
+
+請貼自己的連接字串!!!
+
+之後，我們使用 [Flask-Migrate-Tutorial](https://github.com/twtrubiks/Flask-Migrate-Tutorial) 來建立  DB 的 TABLE，
+
+如果不懂，請參考  [Flask-Migrate-Tutorial](https://github.com/twtrubiks/Flask-Migrate-Tutorial) 範例。
+
+P.S 假如你和我一樣是使用 PostgreSQL ， 需要額外安裝套件 [psycopg2](http://initd.org/psycopg/)
+
+```
+pip install psycopg2
+```
+
+一切處理完畢之後，再進行部屬就完成了。
+
+下圖為簡單的範例  [Demo](https://flask-demo-test.herokuapp.com/index)
+
+commit ID[ce4c8ee68f58c861a5a8072793912b204c186906](https://github.com/twtrubiks/Deploying-Flask-To-Heroku/tree/ce4c8ee68f58c861a5a8072793912b204c186906)
+
+![alt tag](http://i.imgur.com/j1JAKS4.jpg)
+
+database information 就是將 db 的資料全部顯示出來
+
+![alt tag](http://i.imgur.com/a6F14Aw.jpg)
 
 
 ## 執行環境
-* Python 3.4.3
+* Windows 10
 
 ## Reference 
-* [line messaging-api](https://devdocs.line.me/en/#messaging-api) 
-* [line-bot-sdk-python](https://github.com/line/line-bot-sdk-python)
+* [Heroku](https://dashboard.heroku.com/)
 
 
 ## License
